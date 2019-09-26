@@ -739,6 +739,7 @@
             ],
             "properties": {
                 "enableIPForwarding": true,
+                "enableAcceleratedNetworking": true,
                 "ipConfigurations": [
                     {
                         "name": "FW2-Untrust",
@@ -774,6 +775,7 @@
             ],
             "properties": {
                 "enableIPForwarding": true,
+                "enableAcceleratedNetworking": true,
                 "ipConfigurations": [
                     {
                         "name": "FW1-Trust",
@@ -803,6 +805,7 @@
             ],
             "properties": {
                 "enableIPForwarding": true,
+                "enableAcceleratedNetworking": true,
                 "ipConfigurations": [
                     {
                         "name": "FW2-Trust",
@@ -835,6 +838,7 @@
             ],
             "properties": {
                 "enableIPForwarding": true,
+                "enableAcceleratedNetworking": true,
                 "ipConfigurations": [
                     {
                         "name": "FW1-DMZ",
@@ -864,6 +868,7 @@
             ],
             "properties": {
                 "enableIPForwarding": true,
+                "enableAcceleratedNetworking": true,
                 "ipConfigurations": [
                     {
                         "name": "FW2-DMZ",
@@ -893,6 +898,7 @@
             ],
             "properties": {
                 "enableIPForwarding": false,
+                "enableAcceleratedNetworking": true,
                 "ipConfigurations": [
                     {
                         "name": "Dev",
