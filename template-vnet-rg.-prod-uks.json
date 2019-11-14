@@ -444,7 +444,7 @@
         {
             "type": "Microsoft.Network/publicIPAddresses",
             "apiVersion": "2017-08-01",
-            "name": "Ingress-LB-Pub",
+            "name": "External-LB-Pub",
             "location": "[resourceGroup().location]",
             "dependsOn": [],
             "sku": {
@@ -466,7 +466,7 @@
             "location": "[resourceGroup().location]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
-                "[resourceId('Microsoft.Network/publicIPAddresses', 'Ingress-LB-Pub')]"
+                "[resourceId('Microsoft.Network/publicIPAddresses', 'External-LB-Pub')]"
             ],
             "sku": {
                 "name": "Standard"
@@ -477,7 +477,7 @@
                         "name": "LB-External-FrontEnd",
                         "properties": {
                             "publicIPAddress": {
-                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', 'Ingress-LB-Pub')]"
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', 'External-LB-Pub')]"
                             }
                         }
                     }
