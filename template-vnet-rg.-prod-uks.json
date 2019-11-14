@@ -127,6 +127,20 @@
                 "description": "DMZ Subnet address CIDR"
             }
         },
+        "protectedSubnetName": {
+            "defaultValue": "Dev",
+            "type": "String",
+            "metadata": {
+                "description": "Name of the protected backend Subnet (Web, Dev, DB)"
+            }
+        },
+        "protectedSubnetAddressPrefix": {
+            "defaultValue": "10.0.4.0/24",
+            "type": "String",
+            "metadata": {
+                "description": "Protected Subnet address CIDR"
+            }
+        },
         "egressLBFrontEndAddress": {
             "defaultValue": "10.13.17.100",
             "type": "String",
