@@ -212,7 +212,7 @@
         "customDataField": "[concat('storage-account=', parameters('BootstrapStorageAccount'), ',access-key=', parameters('StorageAccountAccessKey'), ',file-share=', parameters('StorageAccountFileShare'),',share-directory=', parameters('StorageAccountFileShareDirectory'))]",
         "rtProtectedSubnetName": "[concat('RT-',parameters('protectedSubnetName'))]",
         "space": " ",
-        "lbId": "[resourceId('Microsoft.Network/loadBalancers/', 'LB-Ingress')]",
+        "lbId": "[resourceId('Microsoft.Network/loadBalancers/', 'LB-External')]",
         "subnetprotRef": "[concat(variables('vnetID'),'/subnets/', parameters('protectedSubnetName'))]",
         "subnetmgmtRef": "[concat(variables('vnetID'),'/subnets/', parameters('managementSubnetName'))]",
         "subnettrustRef": "[concat(variables('vnetID'),'/subnets/', parameters('trustSubnetName'))]",
@@ -462,7 +462,7 @@
         {
             "type": "Microsoft.Network/loadBalancers",
             "apiVersion": "2017-08-01",
-            "name": "LB-Ingress",
+            "name": "LB-External",
             "location": "[resourceGroup().location]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
@@ -474,7 +474,7 @@
             "properties": {
                 "frontendIPConfigurations": [
                     {
-                        "name": "LB-Ingress-FrontEnd",
+                        "name": "LB-External-FrontEnd",
                         "properties": {
                             "publicIPAddress": {
                                 "id": "[resourceId('Microsoft.Network/publicIPAddresses', 'Ingress-LB-Pub')]"
@@ -492,7 +492,7 @@
                         "name": "Allow-80-in",
                         "properties": {
                             "frontendIPConfiguration": {
-                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers','LB-Ingress'), '/frontendIPConfigurations/LB-Ingress-FrontEnd')]"
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers','LB-External'), '/frontendIPConfigurations/LB-External-FrontEnd')]"
                             },
                             "protocol": "Tcp",
                             "frontendPort": 80,
@@ -501,10 +501,10 @@
                             "idleTimeoutInMinutes": 4,
                             "loadDistribution": "SourceIPProtocol",
                             "backendAddressPool": {
-                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', 'LB-Ingress'), '/backendAddressPools/BackendPool')]"
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', 'LB-External'), '/backendAddressPools/BackendPool')]"
                             },
                             "probe": {
-                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', 'LB-Ingress'), '/probes/TCP-22')]"
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', 'LB-External'), '/probes/TCP-22')]"
                             }
                         }
                     }
@@ -529,7 +529,7 @@
         {
             "type": "Microsoft.Network/loadBalancers",
             "apiVersion": "2017-08-01",
-            "name": "LB-Egress",
+            "name": "LB-Internal",
             "location": "[resourceGroup().location]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
@@ -541,7 +541,7 @@
             "properties": {
                 "frontendIPConfigurations": [
                     {
-                        "name": "LB-Egress-FrontEnd",
+                        "name": "LB-Internal-FrontEnd",
                         "properties": {
                             "privateIPAddress": "[parameters('egressLBFrontEndAddress')]",
                             "privateIPAllocationMethod": "Static",
@@ -573,7 +573,7 @@
                         "name": "Allow-All-Out",
                         "properties": {
                             "frontendIPConfiguration": {
-                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', 'LB-Egress'), '/frontendIPConfigurations/LB-Egress-FrontEnd')]"
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', 'LB-Internal'), '/frontendIPConfigurations/LB-Internal-FrontEnd')]"
                             },
                             "frontendPort": 0,
                             "backendPort": 0,
@@ -582,10 +582,10 @@
                             "protocol": "All",
                             "loadDistribution": "Default",
                             "backendAddressPool": {
-                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', 'LB-Egress'), '/backendAddressPools/AS-FW')]"
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', 'LB-Internal'), '/backendAddressPools/AS-FW')]"
                             },
                             "probe": {
-                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', 'LB-Egress'), '/probes/TCP-22')]"
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', 'LB-Internal'), '/probes/TCP-22')]"
                             }
                         }
                     },
@@ -593,7 +593,7 @@
                         "name": "Allow-DMZ",
                         "properties": {
                             "frontendIPConfiguration": {
-                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', 'LB-Egress'), '/frontendIPConfigurations/LB-DMZ-FrontEnd')]"
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', 'LB-Internal'), '/frontendIPConfigurations/LB-DMZ-FrontEnd')]"
                             },
                             "frontendPort": 0,
                             "backendPort": 0,
@@ -602,10 +602,10 @@
                             "protocol": "All",
                             "loadDistribution": "Default",
                             "backendAddressPool": {
-                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', 'LB-Egress'), '/backendAddressPools/DMZ-AS-FW')]"
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', 'LB-Internal'), '/backendAddressPools/DMZ-AS-FW')]"
                             },
                             "probe": {
-                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', 'LB-Egress'), '/probes/TCP-22')]"
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', 'LB-Internal'), '/probes/TCP-22')]"
                             }
                         }
                     }
@@ -689,7 +689,7 @@
             "location": "[resourceGroup().location]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
-                "[resourceId('Microsoft.Network/loadBalancers/', 'LB-Ingress')]"
+                "[resourceId('Microsoft.Network/loadBalancers/', 'LB-External')]"
             ],
             "properties": {
                 "enableIPForwarding": true,
@@ -722,7 +722,7 @@
             "location": "[resourceGroup().location]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
-                "[resourceId('Microsoft.Network/loadBalancers', 'LB-Ingress')]"
+                "[resourceId('Microsoft.Network/loadBalancers', 'LB-External')]"
             ],
             "properties": {
                 "enableIPForwarding": true,
@@ -758,7 +758,7 @@
             "location": "[resourceGroup().location]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
-                "[resourceId('Microsoft.Network/loadBalancers', 'LB-Egress')]"
+                "[resourceId('Microsoft.Network/loadBalancers', 'LB-Internal')]"
             ],
             "properties": {
                 "enableIPForwarding": true,
@@ -773,7 +773,7 @@
                             },
                             "loadBalancerBackendAddressPools": [
                                 {
-                                    "id": "[concat(resourceId('Microsoft.Network/loadBalancers', 'LB-Egress'), '/backendAddressPools/AS-FW')]"
+                                    "id": "[concat(resourceId('Microsoft.Network/loadBalancers', 'LB-Internal'), '/backendAddressPools/AS-FW')]"
                                 }
                             ]
                         }
@@ -788,7 +788,7 @@
             "location": "[resourceGroup().location]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
-                "[resourceId('Microsoft.Network/loadBalancers', 'LB-Egress')]"
+                "[resourceId('Microsoft.Network/loadBalancers', 'LB-Internal')]"
             ],
             "properties": {
                 "enableIPForwarding": true,
@@ -803,7 +803,7 @@
                             },
                             "loadBalancerBackendAddressPools": [
                                 {
-                                    "id": "[concat(resourceId('Microsoft.Network/loadBalancers', 'LB-Egress'), '/backendAddressPools/AS-FW')]"
+                                    "id": "[concat(resourceId('Microsoft.Network/loadBalancers', 'LB-Internal'), '/backendAddressPools/AS-FW')]"
                                 }
                             ]
                         },
@@ -821,7 +821,7 @@
             "location": "[resourceGroup().location]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
-                "[resourceId('Microsoft.Network/loadBalancers', 'LB-Egress')]"
+                "[resourceId('Microsoft.Network/loadBalancers', 'LB-Internal')]"
             ],
             "properties": {
                 "enableIPForwarding": true,
@@ -836,7 +836,7 @@
                             },
                             "loadBalancerBackendAddressPools": [
                                 {
-                                    "id": "[concat(resourceId('Microsoft.Network/loadBalancers', 'LB-Egress'), '/backendAddressPools/DMZ-AS-FW')]"
+                                    "id": "[concat(resourceId('Microsoft.Network/loadBalancers', 'LB-Internal'), '/backendAddressPools/DMZ-AS-FW')]"
                                 }
                             ]
                         }
@@ -851,7 +851,7 @@
             "location": "[resourceGroup().location]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
-                "[resourceId('Microsoft.Network/loadBalancers', 'LB-Egress')]"
+                "[resourceId('Microsoft.Network/loadBalancers', 'LB-Internal')]"
             ],
             "properties": {
                 "enableIPForwarding": true,
@@ -866,7 +866,7 @@
                             },
                             "loadBalancerBackendAddressPools": [
                                 {
-                                    "id": "[concat(resourceId('Microsoft.Network/loadBalancers', 'LB-Egress'), '/backendAddressPools/DMZ-AS-FW')]"
+                                    "id": "[concat(resourceId('Microsoft.Network/loadBalancers', 'LB-Internal'), '/backendAddressPools/DMZ-AS-FW')]"
                                 }
                             ]
                         }
