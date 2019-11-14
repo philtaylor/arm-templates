@@ -72,7 +72,7 @@
             }
         },
         "managementSubnetName": {
-            "defaultValue": "UKS-FIREWALL-MGMT",
+            "defaultValue": "UKS-FIREWALL-MGMT-10.13.18.0-24",
             "type": "String",
             "metadata": {
                 "description": "Name of the Management Subnet"
@@ -86,7 +86,7 @@
             }
         },
         "untrustSubnetName": {
-            "defaultValue": "UKS-FIREWALL-EXTERNAL",
+            "defaultValue": "UKS-FIREWALL-EXTERNAL-10.13.20.0-24",
             "type": "String",
             "metadata": {
                 "description": "Name of the Untrust Subnet"
@@ -100,7 +100,7 @@
             }
         },
         "trustSubnetName": {
-            "defaultValue": "UKS-FIREWALL-INTERNAL",
+            "defaultValue": "UKS-FIREWALL-INTERNAL-10.13.17.0-24",
             "type": "String",
             "metadata": {
                 "description": "Name of the Trust Subnet"
@@ -114,7 +114,7 @@
             }
         },
         "dmzSubnetName": {
-            "defaultValue": "UKS-FIREWALL-DMZ",
+            "defaultValue": "UKS-FIREWALL-DMZ-10.13.19.0-24",
             "type": "String",
             "metadata": {
                 "description": "Name of the DMZ Subnet"
