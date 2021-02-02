@@ -520,10 +520,7 @@
                             },
                             "subnet": {
                                 "id": "[variables('subnetmgmtRef')]"
-                            },
-                            "dependsOn": [
-                                "[resourceId('Microsoft.Network/networkInterfaces', 'INT-FW1-Management')]"
-                            ]
+                            }
                         }
                     }
                 ]
@@ -590,9 +587,6 @@
                                 {
                                     "id": "[concat(variables('lbId'), '/backendAddressPools/BackendPool')]"
                                 }
-                            ],
-                            "dependsOn": [
-                                "[resourceId('Microsoft.Network/networkInterfaces', 'INT-FW1-Untrust')]"
                             ]
                         }
                     }
@@ -654,10 +648,7 @@
                                     "id": "[concat(resourceId('Microsoft.Network/loadBalancers', 'LB-Internal'), '/backendAddressPools/AS-FW')]"
                                 }
                             ]
-                        },
-                        "dependsOn": [
-                            "[resourceId('Microsoft.Network/networkInterfaces', 'INT-FW1-Trust')]"
-                        ]
+                        }
                     }
                 ]
             }
