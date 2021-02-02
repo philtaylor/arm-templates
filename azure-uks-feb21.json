@@ -93,7 +93,7 @@
             }
         },
         "managementSubnetAddressPrefix": {
-            "defaultValue": "10.10.47.64.0/28",
+            "defaultValue": "10.10.47.64/28",
             "type": "String",
             "metadata": {
                 "description": "Management Subnet address CIDR"
