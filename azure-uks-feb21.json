@@ -540,6 +540,7 @@
             ],
             "properties": {
                 "enableIPForwarding": true,
+                "enableAcceleratedNetworking": true,
                 "ipConfigurations": [
                     {
                         "name": "FW1-Untrust",
@@ -573,6 +574,7 @@
             ],
             "properties": {
                 "enableIPForwarding": true,
+                "enableAcceleratedNetworking": true,
                 "ipConfigurations": [
                     {
                         "name": "FW2-Untrust",
@@ -608,6 +610,7 @@
             ],
             "properties": {
                 "enableIPForwarding": true,
+                "enableAcceleratedNetworking": true,
                 "ipConfigurations": [
                     {
                         "name": "FW1-Trust",
@@ -637,6 +640,7 @@
             ],
             "properties": {
                 "enableIPForwarding": true,
+                "enableAcceleratedNetworking": true,
                 "ipConfigurations": [
                     {
                         "name": "FW2-Trust",
