@@ -201,7 +201,7 @@
     "resources": [
         {
             "type": "Microsoft.Network/virtualNetworks",
-            "apiVersion": "2016-06-01",
+            "apiVersion": "2019-04-01",
             "name": "[parameters('virtualNetworkName')]",
             "location": "[resourceGroup().location]",
             "dependsOn": [
@@ -251,7 +251,7 @@
         },
         {
             "type": "Microsoft.Network/publicIPAddresses",
-            "apiVersion": "2017-08-01",
+            "apiVersion": "2019-04-01",
             "name": "IP-FW1-Management",
             "location": "[resourceGroup().location]",
             "dependsOn": [],
@@ -269,7 +269,7 @@
         },
         {
             "type": "Microsoft.Network/publicIPAddresses",
-            "apiVersion": "2017-08-01",
+            "apiVersion": "2019-04-01",
             "name": "IP-FW2-Management",
             "location": "[resourceGroup().location]",
             "dependsOn": [],
@@ -287,7 +287,7 @@
         },
         {
             "type": "Microsoft.Network/publicIPAddresses",
-            "apiVersion": "2017-08-01",
+            "apiVersion": "2019-04-01",
             "name": "IP-FW1-Untrust",
             "location": "[resourceGroup().location]",
             "dependsOn": [],
@@ -305,7 +305,7 @@
         },
         {
             "type": "Microsoft.Network/publicIPAddresses",
-            "apiVersion": "2017-08-01",
+            "apiVersion": "2019-04-01",
             "name": "IP-FW2-Untrust",
             "location": "[resourceGroup().location]",
             "dependsOn": [],
@@ -323,7 +323,7 @@
         },
         {
             "type": "Microsoft.Network/publicIPAddresses",
-            "apiVersion": "2017-08-01",
+            "apiVersion": "2019-04-01",
             "name": "External-LB-Pub",
             "location": "[resourceGroup().location]",
             "dependsOn": [],
@@ -341,7 +341,7 @@
         },
         {
             "type": "Microsoft.Network/loadBalancers",
-            "apiVersion": "2017-08-01",
+            "apiVersion": "2019-04-01",
             "name": "LB-External",
             "location": "[resourceGroup().location]",
             "dependsOn": [
@@ -408,7 +408,7 @@
         },
         {
             "type": "Microsoft.Network/loadBalancers",
-            "apiVersion": "2017-08-01",
+            "apiVersion": "2019-04-01",
             "name": "LB-Internal",
             "location": "[resourceGroup().location]",
             "dependsOn": [
@@ -476,7 +476,7 @@
         },
         {
             "type": "Microsoft.Network/networkInterfaces",
-            "apiVersion": "2015-06-15",
+            "apiVersion": "2019-04-01",
             "name": "INT-FW1-Management",
             "location": "[resourceGroup().location]",
             "dependsOn": [
@@ -502,7 +502,7 @@
         },
         {
             "type": "Microsoft.Network/networkInterfaces",
-            "apiVersion": "2015-06-15",
+            "apiVersion": "2019-04-01",
             "name": "INT-FW2-Management",
             "location": "[resourceGroup().location]",
             "dependsOn": [
@@ -531,7 +531,7 @@
         },
         {
             "type": "Microsoft.Network/networkInterfaces",
-            "apiVersion": "2015-06-15",
+            "apiVersion": "2019-04-01",
             "name": "INT-FW1-Untrust",
             "location": "[resourceGroup().location]",
             "dependsOn": [
@@ -565,7 +565,7 @@
         },
         {
             "type": "Microsoft.Network/networkInterfaces",
-            "apiVersion": "2015-06-15",
+            "apiVersion": "2019-04-01",
             "name": "INT-FW2-Untrust",
             "location": "[resourceGroup().location]",
             "dependsOn": [
@@ -601,7 +601,7 @@
         },
         {
             "type": "Microsoft.Network/networkInterfaces",
-            "apiVersion": "2015-06-15",
+            "apiVersion": "2019-04-01",
             "name": "INT-FW1-Trust",
             "location": "[resourceGroup().location]",
             "dependsOn": [
@@ -631,7 +631,7 @@
         },
         {
             "type": "Microsoft.Network/networkInterfaces",
-            "apiVersion": "2015-06-15",
+            "apiVersion": "2019-04-01",
             "name": "INT-FW2-Trust",
             "location": "[resourceGroup().location]",
             "dependsOn": [
@@ -664,7 +664,7 @@
         },
         {
             "type": "Microsoft.Network/networkSecurityGroups",
-            "apiVersion": "2017-06-01",
+            "apiVersion": "2019-04-01",
             "name": "sg-fw-mgmt",
             "location": "[resourceGroup().location]",
             "dependsOn": [],
@@ -818,7 +818,7 @@
         },
         {
             "type": "Microsoft.Network/networkSecurityGroups",
-            "apiVersion": "2017-06-01",
+            "apiVersion": "2019-04-01",
             "name": "sg-fw-allow-all",
             "location": "[resourceGroup().location]",
             "dependsOn": [],
@@ -957,7 +957,7 @@
         },
         {
             "type": "Microsoft.Compute/availabilitySets",
-            "apiVersion": "2016-04-30-preview",
+            "apiVersion": "2019-04-01",
             "name": "AS-FW",
             "location": "[resourceGroup().location]",
             "dependsOn": [],
@@ -973,7 +973,7 @@
         },
         {
             "type": "Microsoft.Compute/virtualMachines",
-            "apiVersion": "2016-04-30-preview",
+            "apiVersion": "2019-04-01",
             "name": "VM-FW1",
             "location": "[resourceGroup().location]",
             "dependsOn": [
@@ -1044,7 +1044,7 @@
         },
         {
             "type": "Microsoft.Compute/virtualMachines",
-            "apiVersion": "2016-04-30-preview",
+            "apiVersion": "2019-04-01",
             "name": "VM-FW2",
             "location": "[resourceGroup().location]",
             "dependsOn": [
@@ -1115,7 +1115,7 @@
         },
         {
             "type": "Microsoft.Compute/virtualMachines",
-            "apiVersion": "2016-04-30-preview",
+            "apiVersion": "2019-04-01",
             "name": "VM-FW01",
             "location": "[resourceGroup().location]",
             "dependsOn": [
@@ -1185,7 +1185,7 @@
         },
         {
             "type": "Microsoft.Compute/virtualMachines",
-            "apiVersion": "2016-04-30-preview",
+            "apiVersion": "2019-04-01",
             "name": "VM-FW02",
             "location": "[resourceGroup().location]",
             "dependsOn": [
