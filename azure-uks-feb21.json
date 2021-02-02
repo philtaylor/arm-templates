@@ -100,14 +100,14 @@
             }
         },
         "untrustSubnetName": {
-            "defaultValue": "GatewaySubnet",
+            "defaultValue": "pafw-untrust",
             "type": "String",
             "metadata": {
                 "description": "Name of the Untrust Subnet"
             }
         },
         "untrustSubnetAddressPrefix": {
-            "defaultValue": "10.10.47.48/28",
+            "defaultValue": "10.10.47.80/28",
             "type": "String",
             "metadata": {
                 "description": "Untrust Subnet address CIDR"
