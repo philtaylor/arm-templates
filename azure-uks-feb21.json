@@ -476,7 +476,7 @@
         },
         {
             "type": "Microsoft.Network/networkInterfaces",
-            "apiVersion": "2015-06-15",
+            "apiVersion": "2016-09-01",
             "name": "INT-FW1-Management",
             "location": "[resourceGroup().location]",
             "dependsOn": [
@@ -502,7 +502,7 @@
         },
         {
             "type": "Microsoft.Network/networkInterfaces",
-            "apiVersion": "2015-06-15",
+            "apiVersion": "2016-09-01",
             "name": "INT-FW2-Management",
             "location": "[resourceGroup().location]",
             "dependsOn": [
@@ -531,7 +531,7 @@
         },
         {
             "type": "Microsoft.Network/networkInterfaces",
-            "apiVersion": "2015-06-15",
+            "apiVersion": "2016-09-01",
             "name": "INT-FW1-Untrust",
             "location": "[resourceGroup().location]",
             "dependsOn": [
@@ -565,7 +565,7 @@
         },
         {
             "type": "Microsoft.Network/networkInterfaces",
-            "apiVersion": "2015-06-15",
+            "apiVersion": "2016-09-01",
             "name": "INT-FW2-Untrust",
             "location": "[resourceGroup().location]",
             "dependsOn": [
@@ -601,7 +601,7 @@
         },
         {
             "type": "Microsoft.Network/networkInterfaces",
-            "apiVersion": "2015-06-15",
+            "apiVersion": "2016-09-01",
             "name": "INT-FW1-Trust",
             "location": "[resourceGroup().location]",
             "dependsOn": [
@@ -631,7 +631,7 @@
         },
         {
             "type": "Microsoft.Network/networkInterfaces",
-            "apiVersion": "2015-06-15",
+            "apiVersion": "2016-09-01",
             "name": "INT-FW2-Trust",
             "location": "[resourceGroup().location]",
             "dependsOn": [
