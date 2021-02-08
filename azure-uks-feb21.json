@@ -51,14 +51,14 @@
             }
         },
         "virtualNetworkName": {
-            "defaultValue": "vnet-dmz-prod",
+            "defaultValue": "vnet-uks-prod",
             "type": "String",
             "metadata": {
                 "description": "Name of the Virtual Network (VNET)"
             }
         },
         "virtualNetworkAddressPrefix": {
-            "defaultValue": "10.10.32.0/20",
+            "defaultValue": "10.10.0.0/20",
             "type": "String",
             "metadata": {
                 "description": "Virtual network address CIDR"
@@ -86,49 +86,49 @@
             }
         },
         "managementSubnetName": {
-            "defaultValue": "pafw-mgmt",
+            "defaultValue": "snet-uks-prod-pafw-mgmt",
             "type": "String",
             "metadata": {
                 "description": "Name of the Management Subnet"
             }
         },
         "managementSubnetAddressPrefix": {
-            "defaultValue": "10.10.47.64/28",
+            "defaultValue": "10.10.1.0/24",
             "type": "String",
             "metadata": {
                 "description": "Management Subnet address CIDR"
             }
         },
         "untrustSubnetName": {
-            "defaultValue": "pafw-untrust",
+            "defaultValue": "snet-uks-prod-pafw-untrust",
             "type": "String",
             "metadata": {
                 "description": "Name of the Untrust Subnet"
             }
         },
         "untrustSubnetAddressPrefix": {
-            "defaultValue": "10.10.47.80/28",
+            "defaultValue": "10.10.2.0/24",
             "type": "String",
             "metadata": {
                 "description": "Untrust Subnet address CIDR"
             }
         },
         "trustSubnetName": {
-            "defaultValue": "subnet4",
+            "defaultValue": "snet-uks-prod-pafw-trust",
             "type": "String",
             "metadata": {
                 "description": "Name of the Trust Subnet"
             }
         },
         "trustSubnetAddressPrefix": {
-            "defaultValue": "10.10.47.16/28",
+            "defaultValue": "10.10.1.0/24",
             "type": "String",
             "metadata": {
                 "description": "Trust Subnet address CIDR"
             }
         },
         "egressLBFrontEndAddress": {
-            "defaultValue": "10.10.47.30",
+            "defaultValue": "10.10.1.100",
             "type": "String",
             "metadata": {
                 "description": "IP Address of the inbound load balancer in the Trust network"
