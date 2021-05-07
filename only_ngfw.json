@@ -25,7 +25,7 @@
             "metadata": {
                 "description": "PAN OS Version"
             },
-            "defaultValue": "latest"
+            "defaultValue": "8.1.0"
         },
         "imageSku": {
             "type": "string",
@@ -55,7 +55,7 @@
             "metadata": {
                 "description": "Name of the Virtual Network (VNET)"
             },
-            "defaultValue": ""
+            "defaultValue": "ptaylor.swan.vnet"
         },
         "virtualNetworkAddressPrefix": {
             "type": "string",
@@ -66,6 +66,7 @@
         },
         "virtualNetworkResourceGroup": {
             "type": "string",
+            "defaultValue": "ptaylor.swan"
             "metadata": {
               "description": "Resource Group VNET is deployed in"
             }
