@@ -17,3 +17,6 @@
 
 <a href='https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fphiltaylor%2Farm-templates%2Fmaster%2Fazure-uks-feb21.json'>Deploy azure-uks-feb21.json</a>
 <p>UKS, Ingress LB, 2xNGFW, untrust, trust, mgmt, egress LB (2 interfaces) - RG selection options</p>
+
+<a href='https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fphiltaylor%2Farm-templates%2Fmaster%2Fsingle_fw.json'>Deploy single_fw.json</a>
+<p>2 NGFW, untrust, trust, mgmt, - No load balancers</p>
