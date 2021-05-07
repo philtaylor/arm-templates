@@ -5,9 +5,9 @@
         "vmSize": {
             "type": "string",
             "allowedValues": [
-                "Standard_DS3_v2",
-                "Standard_DS4_v2",
-                "Standard_DS5_v2"
+                "DS3_v2",
+                "DS4_v2",
+                "DS5_v2"
             ],
             "metadata": {
                 "description": "Azure VM size for VM-Series"
